@@ -50,7 +50,7 @@ end
   return false
     end
   end
-  
+
 def over?(board)
 if  full?(board) || won?(board) || draw?(board)
   puts "THE GAME IS OVER"
