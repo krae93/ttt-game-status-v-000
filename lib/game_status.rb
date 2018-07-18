@@ -25,3 +25,37 @@ WIN_COMBINATIONS.each do |combinations|
 end
 false
 end
+
+def full?(board)
+board.all? do |input|
+input == "X" || input == "O"
+
+end
+end
+
+def draw?(board)
+  if won?(board) == false && full?(board) == true
+    return true
+  else
+    return false
+end
+end
+
+def over?(board)
+  if won?(board) == true || full?(board) == true || draw?(board) == true
+    return true
+  else
+    return false
+  end
+end
+
+def winner(board)
+  WIN_COMBINATIONS.each do |combinations|
+    if board[combinations[0]] == "X" && board[combinations[1]] == "X" && board[combinations[2]] == "X"
+      return "X"
+    elsif board[combinations[0]] == "O" && board[combinations[1]] == "O" && board[combinations[2]] == "O"
+      return "O"
+    end
+  end
+  nil
+end
